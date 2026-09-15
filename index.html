@@ -3,518 +3,571 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Trehalose Research Programme &middot; Mashhad University of Medical Sciences</title>
-<meta name="description" content="A translational research programme investigating the autophagy-inducing disaccharide trehalose, from mechanism to randomised controlled trials in patients.">
+<title>Trehalose — a symmetric sugar and what it does inside cells</title>
+<meta name="description" content="The structure, cell biology and therapeutic potential of trehalose, with an honest account of what the clinical evidence does and does not show.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#16202b; --body:#455263; --muted:#6c7a8c; --line:#e2e7ee;
-  --bg:#ffffff; --tint:#f5f8fb; --accent:#1f6f8b; --accent-dk:#155163;
-  --chip:#e8f1f5; --max:1080px;
+  --bg:#EDEEF0;
+  --paper:#FBFBFC;
+  --ink:#1A2431;
+  --ink-soft:#4C5A69;
+  --rule:#C8CDD4;
+  --water:#2E6E6B;
+  --glass:#B08A1E;
+  --glass-soft:#EFE2B8;
+  --warn:#8C3B2E;
+  --measure:66ch;
 }
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box}
 html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  color:var(--body); background:var(--bg); line-height:1.65; font-size:17px;
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,sans-serif;
+  font-size:17px;line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:var(--max); margin:0 auto; padding:0 24px}
-h1,h2,h3,h4{color:var(--ink); line-height:1.25; font-weight:650}
-a{color:var(--accent); text-decoration:none}
-a:hover{text-decoration:underline}
+h1,h2,h3{font-family:"IBM Plex Serif",Georgia,serif;font-weight:600;line-height:1.15;margin:0}
+p{margin:0 0 1em}
+a{color:var(--water)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 28px}
+.prose{max-width:var(--measure)}
 
-/* header */
-header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.94);
-  backdrop-filter:saturate(180%) blur(10px); border-bottom:1px solid var(--line)}
-.nav{display:flex; align-items:center; justify-content:space-between; height:66px}
-.brand{font-weight:700; color:var(--ink); font-size:16px; letter-spacing:-.01em}
-.brand span{color:var(--accent)}
-.links{display:flex; gap:26px; font-size:15px}
-.links a{color:var(--body)}
-.links a:hover{color:var(--accent); text-decoration:none}
-.menu-btn{display:none; background:none; border:1px solid var(--line); border-radius:6px;
-  padding:7px 11px; font-size:15px; color:var(--ink); cursor:pointer}
-
-/* hero */
-.hero{padding:76px 0 62px; border-bottom:1px solid var(--line)}
-.eyebrow{display:inline-block; font-size:13px; letter-spacing:.09em; text-transform:uppercase;
-  color:var(--accent); font-weight:700; margin-bottom:18px}
-.hero h1{font-size:clamp(32px,5vw,50px); letter-spacing:-.02em; margin-bottom:20px}
-.hero h1 em{font-style:normal; color:var(--accent)}
-.lede{font-size:19px; max-width:660px; color:var(--body)}
-.cta{margin-top:30px; display:flex; gap:14px; flex-wrap:wrap}
-.btn{display:inline-block; padding:12px 22px; border-radius:7px; font-size:15px; font-weight:600}
-.btn-p{background:var(--accent); color:#fff}
-.btn-p:hover{background:var(--accent-dk); text-decoration:none}
-.btn-s{border:1px solid var(--line); color:var(--ink)}
-.btn-s:hover{border-color:var(--accent); color:var(--accent); text-decoration:none}
-
-.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:52px;
-  padding-top:34px; border-top:1px solid var(--line)}
-.stat b{display:block; font-size:28px; color:var(--ink); letter-spacing:-.02em}
-.stat span{font-size:14px; color:var(--muted)}
-
-/* sections */
-section{padding:72px 0}
-.tint{background:var(--tint); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
-.shead{margin-bottom:38px; max-width:700px}
-.shead .eyebrow{margin-bottom:12px}
-.shead h2{font-size:clamp(25px,3.4vw,34px); letter-spacing:-.02em; margin-bottom:14px}
-.shead p{color:var(--muted)}
-
-.prose p{margin-bottom:16px}
-.prose strong{color:var(--ink)}
-
-.grid{display:grid; gap:20px}
-.g2{grid-template-columns:repeat(2,1fr)}
-.g3{grid-template-columns:repeat(3,1fr)}
-.g4{grid-template-columns:repeat(4,1fr)}
-
-.card{background:#fff; border:1px solid var(--line); border-radius:10px; padding:24px}
-.card h3{font-size:18px; margin-bottom:9px}
-.card p{font-size:15.5px; color:var(--body)}
-.icon{width:38px;height:38px;border-radius:8px;background:var(--chip);color:var(--accent);
-  display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:14px}
-
-.chip{display:inline-block; font-size:12px; font-weight:650; letter-spacing:.03em;
-  padding:4px 10px; border-radius:20px; background:var(--chip); color:var(--accent-dk);
-  text-transform:uppercase}
-
-/* trials */
-.trial{background:#fff; border:1px solid var(--line); border-left:3px solid var(--accent);
-  border-radius:8px; padding:22px 24px; margin-bottom:16px}
-.trial h3{font-size:17.5px; margin-bottom:8px}
-.trial .meta{display:flex; flex-wrap:wrap; gap:8px 18px; font-size:13.5px; color:var(--muted); margin-top:12px}
-.trial .meta b{color:var(--ink); font-weight:600}
-
-/* publications */
-.filters{display:flex; gap:9px; flex-wrap:wrap; margin-bottom:26px}
-.filt{border:1px solid var(--line); background:#fff; border-radius:20px; padding:7px 16px;
-  font-size:14px; color:var(--body); cursor:pointer; font-family:inherit}
-.filt:hover{border-color:var(--accent)}
-.filt.on{background:var(--accent); border-color:var(--accent); color:#fff}
-.pub{display:grid; grid-template-columns:70px 1fr; gap:18px; padding:18px 0;
-  border-bottom:1px solid var(--line)}
-.pub .yr{font-size:14px; font-weight:700; color:var(--accent); padding-top:2px}
-.pub h4{font-size:16.5px; font-weight:600; margin-bottom:5px; line-height:1.4}
-.pub .jrnl{font-size:14.5px; color:var(--muted); font-style:italic}
-.pub .row{display:flex; align-items:center; gap:14px; margin-top:9px; flex-wrap:wrap}
-.pub .row a{font-size:14px; font-weight:600}
-
-/* team */
-.person{background:#fff; border:1px solid var(--line); border-radius:10px; padding:28px; text-align:center}
-.person img{width:118px;height:118px;border-radius:50%;object-fit:cover;margin:0 auto 16px;display:block;
-  border:3px solid var(--chip)}
-.person h3{font-size:18.5px; margin-bottom:3px}
-.person .role{font-size:14px; color:var(--accent); font-weight:600; margin-bottom:12px}
-.person p{font-size:15px; text-align:left; color:var(--body)}
-
-/* contact */
-.contact{display:grid; grid-template-columns:repeat(2,1fr); gap:20px}
-.cbox{background:#fff; border:1px solid var(--line); border-radius:10px; padding:22px}
-.cbox .lbl{font-size:12px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted);
-  font-weight:700; margin-bottom:6px}
-.cbox .val{font-size:16px; color:var(--ink); word-break:break-word}
-
-footer{background:var(--ink); color:#aab7c6; padding:44px 0; font-size:14.5px}
-footer a{color:#fff}
-.fnote{margin-top:14px; color:#7d8b9b; font-size:13.5px}
-
-@media(max-width:900px){
-  .g4{grid-template-columns:repeat(2,1fr)}
-  .g3{grid-template-columns:repeat(2,1fr)}
+/* ---------- hero ---------- */
+.hero{padding:76px 0 44px;text-align:center;border-bottom:1px solid var(--rule)}
+.hero h1{font-size:clamp(2.1rem,6vw,3.6rem);letter-spacing:-.015em}
+.hero .sub{
+  font-family:"IBM Plex Serif",serif;font-style:italic;
+  font-size:clamp(1.05rem,2.4vw,1.3rem);color:var(--ink-soft);
+  max-width:40ch;margin:18px auto 0;line-height:1.5;
 }
+.molecule{margin:38px auto 0;max-width:760px}
+.molecule svg{width:100%;height:auto;display:block}
+.axis-note{
+  font-size:.83rem;color:var(--ink-soft);margin-top:10px;
+  font-family:"IBM Plex Serif",serif;font-style:italic;
+}
+
+/* ---------- generic section ---------- */
+section{padding:66px 0;border-bottom:1px solid var(--rule)}
+section h2{font-size:clamp(1.5rem,3.4vw,2.05rem);margin-bottom:.5em;letter-spacing:-.01em}
+.lede{font-size:1.08rem;color:var(--ink-soft);max-width:var(--measure)}
+
+/* ---------- facts strip ---------- */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:34px}
+.fact{background:var(--paper);padding:20px 22px}
+.fact b{display:block;font-family:"IBM Plex Serif",serif;font-size:1.5rem;font-weight:600;margin-bottom:3px}
+.fact span{font-size:.88rem;color:var(--ink-soft);line-height:1.45;display:block}
+
+/* ---------- interactive desiccation ---------- */
+.demo{background:var(--paper);border:1px solid var(--rule);margin-top:34px;padding:26px 24px 22px}
+.demo svg{width:100%;height:auto;display:block;max-width:820px;margin:0 auto}
+.controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+.controls button{
+  font:inherit;font-size:.92rem;padding:9px 18px;cursor:pointer;
+  background:transparent;border:1px solid var(--ink);color:var(--ink);border-radius:2px;
+}
+.controls button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.controls button:focus-visible{outline:2px solid var(--water);outline-offset:2px}
+.caption{text-align:center;font-size:.9rem;color:var(--ink-soft);margin-top:16px;max-width:60ch;margin-inline:auto;min-height:3em}
+.fade{transition:opacity .45s ease}
+@media (prefers-reduced-motion:reduce){.fade{transition:none}}
+
+/* ---------- mechanism ---------- */
+.mech{margin-top:34px;background:var(--paper);border:1px solid var(--rule);padding:24px 18px}
+.mech svg{width:100%;height:auto;display:block}
+
+/* ---------- therapeutic fan ---------- */
+.areas{margin-top:38px;display:grid;gap:26px}
+.area{display:grid;grid-template-columns:70px 1fr;gap:20px;align-items:start;
+  padding-bottom:24px;border-bottom:1px dotted var(--rule)}
+.area:last-child{border-bottom:0}
+.area svg{width:62px;height:62px;display:block}
+.area h3{font-size:1.12rem;margin-bottom:5px}
+.area p{margin:0;font-size:.97rem;color:var(--ink-soft);max-width:58ch}
+.stage{
+  display:inline-block;font-size:.76rem;letter-spacing:.02em;
+  border:1px solid var(--rule);padding:2px 8px;margin-left:8px;
+  color:var(--ink-soft);vertical-align:2px;background:var(--bg);border-radius:2px;
+}
+
+/* ---------- routes ---------- */
+.routes{margin-top:34px;background:var(--paper);border:1px solid var(--rule);padding:26px 20px}
+.routes svg{width:100%;height:auto;display:block}
+
+/* ---------- evidence ---------- */
+.ledger{margin-top:30px;border-top:2px solid var(--ink)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:20px 0;border-bottom:1px solid var(--rule)}
+.row h3{font-size:1rem;font-family:"IBM Plex Sans",sans-serif;font-weight:600;margin-bottom:6px}
+.row p{margin:0;font-size:.95rem;color:var(--ink-soft)}
+.row .yes h3{color:var(--water)}
+.row .no h3{color:var(--warn)}
+
+footer{padding:46px 0 60px;font-size:.9rem;color:var(--ink-soft)}
+footer p{max-width:var(--measure)}
+
 @media(max-width:700px){
-  .links{display:none}
-  .links.open{display:flex; position:absolute; top:66px; left:0; right:0; background:#fff;
-    flex-direction:column; gap:0; padding:8px 24px 16px; border-bottom:1px solid var(--line)}
-  .links.open a{padding:11px 0; border-bottom:1px solid var(--line)}
-  .menu-btn{display:block}
-  .g2,.g3,.g4,.contact{grid-template-columns:1fr}
-  .stats{grid-template-columns:repeat(2,1fr); gap:24px}
-  .pub{grid-template-columns:1fr; gap:6px}
-  section{padding:54px 0}
+  body{font-size:16px}
+  .row{grid-template-columns:1fr;gap:14px}
+  .area{grid-template-columns:48px 1fr;gap:14px}
+  .area svg{width:44px;height:44px}
+  section{padding:48px 0}
+  .hero{padding:52px 0 32px}
 }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
-    <div class="brand">Trehalose <span>Research Programme</span></div>
-    <nav class="links" id="nav">
-      <a href="#science">The Science</a>
-      <a href="#areas">Disease Areas</a>
-      <a href="#trials">Clinical Trials</a>
-      <a href="#pubs">Publications</a>
-      <a href="#team">Team</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="menu-btn" onclick="document.getElementById('nav').classList.toggle('open')">Menu</button>
+<header class="hero">
+  <div class="wrap">
+    <h1>Trehalose</h1>
+    <p class="sub">A sugar built from two glucose units joined back to front. That single unusual bond explains almost everything it does.</p>
+
+    <div class="molecule">
+      <svg viewBox="0 0 720 316" role="img" aria-label="Haworth structure of trehalose: two glucopyranose rings joined through their anomeric carbons by a central oxygen, symmetric about a vertical axis.">
+        <defs>
+          <style>
+            .bond{stroke:#1A2431;stroke-width:2.2;fill:none;stroke-linecap:round}
+            .front{stroke-width:5}
+            .lbl{font-family:"IBM Plex Sans",sans-serif;font-size:15px;fill:#1A2431}
+            .lbl-s{font-family:"IBM Plex Sans",sans-serif;font-size:13px;fill:#4C5A69}
+            .halo{fill:#EDEEF0}
+          </style>
+        </defs>
+
+        <!-- mirror axis -->
+        <line x1="360" y1="42" x2="360" y2="272" stroke="#B08A1E" stroke-width="1.2" stroke-dasharray="5 6"/>
+        <text x="360" y="34" class="lbl-s" text-anchor="middle" fill="#B08A1E">mirror axis</text>
+
+        <!-- LEFT RING -->
+        <path class="bond" d="M310,180 L280,150 L220,150 L190,180 L220,205 L280,205 Z"/>
+        <path class="bond front" d="M280,205 L220,205"/>
+        <!-- substituents left -->
+        <path class="bond" d="M220,150 L220,112"/>
+        <path class="bond" d="M190,180 L152,180"/>
+        <path class="bond" d="M220,205 L220,242"/>
+        <path class="bond" d="M280,205 L280,242"/>
+
+        <!-- RIGHT RING (mirror) -->
+        <path class="bond" d="M410,180 L440,150 L500,150 L530,180 L500,205 L440,205 Z"/>
+        <path class="bond front" d="M440,205 L500,205"/>
+        <path class="bond" d="M500,150 L500,112"/>
+        <path class="bond" d="M530,180 L568,180"/>
+        <path class="bond" d="M500,205 L500,242"/>
+        <path class="bond" d="M440,205 L440,242"/>
+
+        <!-- glycosidic linkage -->
+        <path class="bond" d="M310,180 L410,180" stroke="#B08A1E" stroke-width="3"/>
+        <circle cx="360" cy="180" r="13" class="halo"/>
+        <text x="360" y="186" class="lbl" text-anchor="middle" fill="#B08A1E" font-weight="600">O</text>
+
+        <!-- ring oxygens -->
+        <circle cx="280" cy="150" r="11" class="halo"/>
+        <text x="280" y="155" class="lbl" text-anchor="middle">O</text>
+        <circle cx="440" cy="150" r="11" class="halo"/>
+        <text x="440" y="155" class="lbl" text-anchor="middle">O</text>
+
+        <!-- hydroxyls -->
+        <text x="220" y="105" class="lbl" text-anchor="middle">HOH₂C</text>
+        <text x="500" y="105" class="lbl" text-anchor="middle">CH₂OH</text>
+        <text x="146" y="185" class="lbl" text-anchor="end">HO</text>
+        <text x="574" y="185" class="lbl" text-anchor="start">OH</text>
+        <text x="220" y="258" class="lbl" text-anchor="middle">OH</text>
+        <text x="280" y="258" class="lbl" text-anchor="middle">OH</text>
+        <text x="440" y="258" class="lbl" text-anchor="middle">OH</text>
+        <text x="500" y="258" class="lbl" text-anchor="middle">OH</text>
+
+        <!-- callout -->
+        <path d="M360,194 L360,282" stroke="#B08A1E" stroke-width="1.2" fill="none"/>
+        <text x="360" y="298" class="lbl-s" text-anchor="middle" fill="#B08A1E">α,α-1,1 glycosidic bond</text>
+      </svg>
+      <p class="axis-note">Both anomeric carbons are tied up in the linkage, so trehalose has no free reducing end and no open-chain form.</p>
+    </div>
   </div>
 </header>
 
-<div class="hero">
+<section id="what">
   <div class="wrap">
-    <span class="eyebrow">From bench to bedside &middot; Autophagy-based therapeutics</span>
-    <h1>Unlocking the therapeutic potential of <em>trehalose</em> in human disease</h1>
-    <p class="lede">A sustained research programme translating the autophagy-inducing disaccharide
-      trehalose from laboratory models into carefully designed clinical trials in patients.</p>
-    <div class="cta">
-      <a class="btn btn-p" href="#trials">Clinical trials</a>
-      <a class="btn btn-s" href="#pubs">Publications</a>
+    <h2>Why the bond matters</h2>
+    <div class="prose">
+      <p>In maltose, sucrose and lactose, at least one ring can open into a reactive aldehyde. Trehalose cannot. Joining the two glucoses through both of their anomeric carbons locks the molecule shut, and a locked molecule does not brown, does not caramelise easily, and does not attack the amino groups of proteins the way reducing sugars do.</p>
+      <p>The same closure makes trehalose unusually resistant to acid and heat, and gives it a glass transition temperature far above that of other common sugars. Dried down, it does not crystallise. It sets into an amorphous glass that traps whatever is suspended in it.</p>
     </div>
-    <div class="stats">
-      <div class="stat"><b>15+</b><span>Years of research</span></div>
-      <div class="stat"><b>8</b><span>Disease areas</span></div>
-      <div class="stat"><b>8</b><span>Clinical trials</span></div>
-      <div class="stat"><b>Bench to bedside</b><span>Translational approach</span></div>
-    </div>
-  </div>
-</div>
 
-<section id="science">
-  <div class="wrap">
-    <div class="shead">
-      <span class="eyebrow">The science</span>
-      <h2>Why trehalose?</h2>
-      <p>A naturally occurring disaccharide with an unusual molecular architecture and a
-         strikingly broad therapeutic profile.</p>
-    </div>
-    <div class="prose" style="max-width:760px">
-      <p>Trehalose, also known as mycose, is a non-reducing disaccharide of two glucose units
-         joined by a stable &alpha;,&alpha;-1,1-glycosidic bond. This unusual linkage gives the
-         molecule exceptional chemical stability and <strong>chaperone-like activity</strong>,
-         allowing it to stabilise proteins and cell membranes under stress.</p>
-      <p>Its most studied property is the <strong>induction of autophagy</strong>, the cell's
-         housekeeping pathway for clearing misfolded proteins and damaged organelles. Because
-         impaired autophagy contributes to neurodegeneration, atherosclerosis, metabolic disease
-         and ageing, trehalose has become an attractive and well-tolerated candidate for
-         therapeutic intervention.</p>
-      <p>Our programme spans the full translational arc, from mechanistic and preclinical work to
-         <strong>randomised, placebo-controlled trials in patients</strong>, with the aim of
-         establishing where, and for whom, trehalose delivers genuine clinical benefit.</p>
-    </div>
-    <div class="grid g4" style="margin-top:36px">
-      <div class="card"><div class="icon">&#9851;</div><h3>Autophagy induction</h3>
-        <p>Enhances clearance of toxic protein aggregates through mTOR-independent pathways.</p></div>
-      <div class="card"><div class="icon">&#10070;</div><h3>Protein stabilisation</h3>
-        <p>Chaperone-like activity that prevents aberrant folding of vulnerable proteins.</p></div>
-      <div class="card"><div class="icon">&#9733;</div><h3>Antioxidant defence</h3>
-        <p>Strengthens endogenous defences and reduces damaging oxidative stress.</p></div>
-      <div class="card"><div class="icon">&#9663;</div><h3>Anti-inflammatory action</h3>
-        <p>Suppresses pro-inflammatory signalling and inflammasome activation.</p></div>
+    <div class="facts">
+      <div class="fact"><b>α,α-1,1</b><span>Linkage type. Both reducing ends consumed.</span></div>
+      <div class="fact"><b>~115 °C</b><span>Glass transition temperature of the dry sugar, the highest of the common disaccharides.</span></div>
+      <div class="fact"><b>Non-reducing</b><span>Does not undergo the Maillard reaction with proteins.</span></div>
+      <div class="fact"><b>Trehalase</b><span>The single enzyme that splits it, found in the human intestinal brush border and kidney.</span></div>
     </div>
   </div>
 </section>
 
-<section id="areas" class="tint">
+<section id="desiccation">
   <div class="wrap">
-    <div class="shead">
-      <span class="eyebrow">Research areas</span>
-      <h2>Disease areas under investigation</h2>
-      <p>The pleiotropic mechanisms of trehalose make it relevant across a notably wide range
-         of pathological conditions.</p>
+    <h2>How it protects a drying cell</h2>
+    <p class="lede">Tardigrades, brine shrimp cysts, baker's yeast and resurrection plants all accumulate trehalose before they dry out. Two ideas explain what it does, and they are not mutually exclusive.</p>
+
+    <div class="demo">
+      <svg viewBox="0 0 800 330" role="img" aria-labelledby="desicTitle">
+        <title id="desicTitle">A folded protein losing its hydration shell, shown with and without trehalose present.</title>
+        <defs>
+          <style>
+            .prot{fill:#2E6E6B;fill-opacity:.16;stroke:#2E6E6B;stroke-width:2.4}
+            .wat{fill:#2E6E6B;opacity:.55}
+            .sug{fill:none;stroke:#B08A1E;stroke-width:1.9}
+            .stg{font-family:"IBM Plex Serif",serif;font-size:15px;fill:#1A2431;font-weight:600}
+            .stg-s{font-family:"IBM Plex Sans",sans-serif;font-size:12.5px;fill:#4C5A69}
+            .arrw{stroke:#4C5A69;stroke-width:1.6;fill:none;marker-end:url(#ah)}
+          </style>
+          <marker id="ah" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#4C5A69"/>
+          </marker>
+          <g id="hexsug">
+            <path class="sug" d="M0,-11 L9.5,-5.5 L9.5,5.5 L0,11 L-9.5,5.5 L-9.5,-5.5 Z"/>
+          </g>
+        </defs>
+
+        <!-- PANEL 1 : hydrated -->
+        <g id="p1">
+          <text x="120" y="32" class="stg" text-anchor="middle">Hydrated</text>
+          <text x="120" y="50" class="stg-s" text-anchor="middle">water shell holds the fold</text>
+          <path class="prot" d="M78,140 C70,110 108,92 132,106 C158,92 186,116 174,144
+                                 C192,166 172,200 144,196 C126,216 88,206 86,180
+                                 C64,170 62,150 78,140 Z"/>
+          <g class="wat">
+            <circle cx="62" cy="120" r="4"/><circle cx="96" cy="86" r="4"/><circle cx="140" cy="82" r="4"/>
+            <circle cx="184" cy="100" r="4"/><circle cx="198" cy="140" r="4"/><circle cx="196" cy="180" r="4"/>
+            <circle cx="166" cy="212" r="4"/><circle cx="120" cy="222" r="4"/><circle cx="76" cy="212" r="4"/>
+            <circle cx="52" cy="176" r="4"/><circle cx="48" cy="146" r="4"/><circle cx="118" cy="70" r="4"/>
+          </g>
+        </g>
+
+        <path class="arrw" d="M232,150 L282,150"/>
+        <text x="257" y="138" class="stg-s" text-anchor="middle">water leaves</text>
+
+        <!-- PANEL 2 : outcome, swapped by the toggle -->
+        <g id="noTre" class="fade">
+          <text x="420" y="32" class="stg" text-anchor="middle">Dried, no trehalose</text>
+          <text x="420" y="50" class="stg-s" text-anchor="middle">the fold collapses</text>
+          <path class="prot" fill-opacity=".08" stroke-dasharray="5 4"
+                d="M352,164 C340,128 384,150 400,118 C418,148 452,104 456,142
+                   C482,160 440,178 462,200 C424,192 428,220 396,204
+                   C372,222 368,188 344,194 Z"/>
+          <circle class="wat" cx="330" cy="98" r="3.4"/><circle class="wat" cx="492" cy="212" r="3.4"/>
+        </g>
+
+        <g id="withTre" class="fade" style="opacity:0">
+          <text x="420" y="32" class="stg" text-anchor="middle">Dried, with trehalose</text>
+          <text x="420" y="50" class="stg-s" text-anchor="middle">sugar substitutes for water</text>
+          <path class="prot" d="M378,140 C370,110 408,92 432,106 C458,92 486,116 474,144
+                                 C492,166 472,200 444,196 C426,216 388,206 386,180
+                                 C364,170 362,150 378,140 Z"/>
+          <g>
+            <use href="#hexsug" x="360" y="106"/><use href="#hexsug" x="404" y="80"/>
+            <use href="#hexsug" x="452" y="82"/><use href="#hexsug" x="494" y="110"/>
+            <use href="#hexsug" x="506" y="152"/><use href="#hexsug" x="498" y="192"/>
+            <use href="#hexsug" x="462" y="216"/><use href="#hexsug" x="416" y="224"/>
+            <use href="#hexsug" x="374" y="212"/><use href="#hexsug" x="350" y="172"/>
+            <use href="#hexsug" x="346" y="138"/>
+          </g>
+        </g>
+
+        <path class="arrw" d="M546,150 L596,150"/>
+        <text x="571" y="138" class="stg-s" text-anchor="middle">rehydrate</text>
+
+        <!-- PANEL 3 -->
+        <g id="p3">
+          <text x="700" y="32" class="stg" text-anchor="middle">Recovered</text>
+          <text x="700" y="50" class="stg-s" text-anchor="middle" id="recovLbl">function returns</text>
+          <path class="prot" id="recovShape"
+                d="M658,140 C650,110 688,92 712,106 C738,92 766,116 754,144
+                   C772,166 752,200 724,196 C706,216 668,206 666,180
+                   C644,170 642,150 658,140 Z"/>
+        </g>
+      </svg>
+
+      <div class="controls">
+        <button id="btnNo" aria-pressed="true">Dry it without trehalose</button>
+        <button id="btnYes" aria-pressed="false">Dry it with trehalose</button>
+      </div>
+      <p class="caption" id="cap" aria-live="polite">Without a substitute, the hydrogen bonds that held the fold together are lost as water goes, and the protein does not come back.</p>
     </div>
-    <div class="grid g3">
-      <div class="card"><div class="icon">&#129504;</div><h3>Neurodegenerative disease</h3>
-        <p>Alzheimer's and Parkinson's disease, where autophagy induction may assist clearance of
-           amyloid-&beta;, tau and &alpha;-synuclein aggregates.</p>
-        <div style="margin-top:12px"><span class="chip">Clinical &amp; review</span></div></div>
-      <div class="card"><div class="icon">&#10084;</div><h3>Cardiovascular disease</h3>
-        <p>Atherosclerosis and vascular health, targeting impaired macrophage autophagy that
-           drives plaque progression.</p>
-        <div style="margin-top:12px"><span class="chip">Preclinical</span></div></div>
-      <div class="card"><div class="icon">&#9878;</div><h3>Metabolic disorders</h3>
-        <p>Type 2 diabetes and glycaemic control, examining effects on inflammation, oxidative
-           stress and quality of life.</p>
-        <div style="margin-top:12px"><span class="chip">Clinical</span></div></div>
-      <div class="card"><div class="icon">&#9873;</div><h3>Critical care</h3>
-        <p>Organ failure and mortality in intensive care, where autophagy induction may improve
-           survival and clinical outcome.</p>
-        <div style="margin-top:12px"><span class="chip">Clinical</span></div></div>
-      <div class="card"><div class="icon">&#9737;</div><h3>Traumatic brain injury</h3>
-        <p>Inflammatory markers, oxidative stress and clinical outcome in patients with head
-           trauma.</p>
-        <div style="margin-top:12px"><span class="chip">Clinical</span></div></div>
-      <div class="card"><div class="icon">&#9784;</div><h3>Bone healing</h3>
-        <p>Fracture repair, physical function and pain following pertrochanteric fracture.</p>
-        <div style="margin-top:12px"><span class="chip">Clinical</span></div></div>
-      <div class="card"><div class="icon">&#9883;</div><h3>Lysosomal storage disorders</h3>
-        <p>Acid sphingomyelinase deficiency (Niemann&ndash;Pick types A and B), Sanfilippo
-           syndrome and multiple sulfatase deficiency.</p>
-        <div style="margin-top:12px"><span class="chip">Clinical</span></div></div>
-      <div class="card"><div class="icon">&#9737;</div><h3>Biomarker discovery</h3>
-        <p>Circulating microRNAs and pharmacometabolomic signatures to monitor response to
-           trehalose treatment.</p>
-        <div style="margin-top:12px"><span class="chip">Translational</span></div></div>
+
+    <div class="prose" style="margin-top:32px">
+      <p><strong>Water replacement.</strong> The hydroxyls of trehalose hydrogen-bond to the polar groups on a protein surface in place of the departing water, so the fold never loses its scaffolding.</p>
+      <p><strong>Vitrification.</strong> As the last water goes, trehalose forms a rigid glass. Molecular motion inside that glass slows to almost nothing, so unfolding cannot proceed on any relevant timescale.</p>
+      <p>This is why trehalose has been a standard excipient in freeze-dried biologics for decades, long before anyone proposed giving it as a drug.</p>
     </div>
   </div>
 </section>
 
-<section id="trials">
+<section id="mechanism">
   <div class="wrap">
-    <div class="shead">
-      <span class="eyebrow">Clinical trials</span>
-      <h2>Translating mechanism into patient outcomes</h2>
-      <p>Registered, prospectively designed trials evaluating trehalose across several
-         indications.</p>
+    <h2>What it does inside a human cell</h2>
+    <p class="lede">The therapeutic interest rests on a second, quite separate property: trehalose induces autophagy, and it does so without inhibiting mTOR directly.</p>
+
+    <div class="mech">
+      <svg viewBox="0 0 950 510" role="img" aria-labelledby="mechTitle">
+        <title id="mechTitle">Pathway diagram: trehalose enters through GLUT8, causes a transient energy stress that activates AMPK and relieves mTORC1 inhibition of TFEB, which moves to the nucleus and switches on lysosomal and autophagy genes.</title>
+        <defs>
+          <style>
+            .box{fill:#FBFBFC;stroke:#1A2431;stroke-width:1.6}
+            .box-a{fill:#FBFBFC;stroke:#2E6E6B;stroke-width:1.8}
+            .t{font-family:"IBM Plex Sans",sans-serif;font-size:13.5px;fill:#1A2431}
+            .tb{font-family:"IBM Plex Sans",sans-serif;font-size:13.5px;fill:#1A2431;font-weight:600}
+            .ts{font-family:"IBM Plex Sans",sans-serif;font-size:11.5px;fill:#4C5A69}
+            .flow{stroke:#4C5A69;stroke-width:1.7;fill:none;marker-end:url(#a2)}
+            .inhib{stroke:#8C3B2E;stroke-width:1.7;fill:none}
+            .memb{stroke:#4C5A69;stroke-width:1.4;fill:none}
+          </style>
+          <marker id="a2" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#4C5A69"/>
+          </marker>
+          <g id="tre2">
+            <path d="M-13,0 L-8,-6 L-2,-6 L2,0 L-2,5 L-8,5 Z" fill="none" stroke="#B08A1E" stroke-width="1.6"/>
+            <path d="M13,0 L8,-6 L2,-6 L-2,0 L2,5 L8,5 Z" fill="none" stroke="#B08A1E" stroke-width="1.6"/>
+          </g>
+        </defs>
+
+        <!-- extracellular -->
+        <text x="40" y="28" class="ts">outside the cell</text>
+        <use href="#tre2" x="120" y="36"/><use href="#tre2" x="190" y="30"/><use href="#tre2" x="258" y="40"/>
+
+        <!-- membrane -->
+        <path class="memb" d="M30,68 H870"/>
+        <path class="memb" d="M30,86 H870"/>
+        <g fill="#4C5A69" opacity=".45">
+          <circle cx="60" cy="68" r="3"/><circle cx="100" cy="68" r="3"/><circle cx="140" cy="68" r="3"/>
+          <circle cx="260" cy="68" r="3"/><circle cx="300" cy="68" r="3"/><circle cx="340" cy="68" r="3"/>
+          <circle cx="60" cy="86" r="3"/><circle cx="100" cy="86" r="3"/><circle cx="140" cy="86" r="3"/>
+          <circle cx="260" cy="86" r="3"/><circle cx="300" cy="86" r="3"/><circle cx="340" cy="86" r="3"/>
+          <circle cx="480" cy="68" r="3"/><circle cx="520" cy="68" r="3"/><circle cx="560" cy="68" r="3"/>
+          <circle cx="480" cy="86" r="3"/><circle cx="520" cy="86" r="3"/><circle cx="560" cy="86" r="3"/>
+          <circle cx="700" cy="68" r="3"/><circle cx="740" cy="68" r="3"/><circle cx="780" cy="68" r="3"/>
+          <circle cx="700" cy="86" r="3"/><circle cx="740" cy="86" r="3"/><circle cx="780" cy="86" r="3"/>
+        </g>
+
+        <!-- transporter -->
+        <rect x="176" y="58" width="52" height="38" rx="5" class="box-a"/>
+        <text x="202" y="82" class="tb" text-anchor="middle">GLUT8</text>
+        <text x="202" y="112" class="ts" text-anchor="middle">SLC2A8</text>
+        <path class="flow" d="M202,120 L202,150"/>
+
+        <!-- branch 1 -->
+        <rect x="96" y="152" width="212" height="46" rx="4" class="box"/>
+        <text x="202" y="172" class="t" text-anchor="middle">competes with glucose uptake</text>
+        <text x="202" y="190" class="ts" text-anchor="middle">brief drop in intracellular ATP</text>
+        <path class="flow" d="M202,198 L202,230"/>
+
+        <rect x="136" y="232" width="132" height="40" rx="4" class="box-a"/>
+        <text x="202" y="257" class="tb" text-anchor="middle">AMPK activated</text>
+
+        <path class="flow" d="M202,272 L202,300"/>
+        <rect x="126" y="302" width="152" height="40" rx="4" class="box"/>
+        <text x="202" y="327" class="t" text-anchor="middle">mTORC1 restrained</text>
+
+        <!-- branch 2 : chaperone, routed down the left margin -->
+        <path class="flow" d="M196,128 C140,136 56,152 56,206 L56,392 C56,408 70,414 94,416"/>
+        <rect x="100" y="386" width="204" height="62" rx="4" class="box"/>
+        <text x="202" y="408" class="t" text-anchor="middle">binds misfolded protein</text>
+        <text x="202" y="426" class="ts" text-anchor="middle">chemical chaperone effect,</text>
+        <text x="202" y="441" class="ts" text-anchor="middle">independent of any signalling</text>
+
+        <!-- TFEB -->
+        <path class="flow" d="M278,322 L352,322"/>
+        <rect x="356" y="300" width="150" height="44" rx="4" class="box-a"/>
+        <text x="431" y="328" class="tb" text-anchor="middle">TFEB dephosphorylated</text>
+        <text x="431" y="362" class="ts" text-anchor="middle">released from cytoplasmic anchoring</text>
+
+        <!-- nucleus -->
+        <ellipse cx="700" cy="322" rx="128" ry="94" fill="#2E6E6B" fill-opacity=".07" stroke="#2E6E6B" stroke-width="1.6"/>
+        <text x="700" y="252" class="ts" text-anchor="middle">nucleus</text>
+        <path class="flow" d="M510,322 L572,322"/>
+        <rect x="614" y="292" width="172" height="60" rx="4" class="box"/>
+        <text x="700" y="314" class="tb" text-anchor="middle">CLEAR gene network</text>
+        <text x="700" y="333" class="ts" text-anchor="middle">lysosomal biogenesis and</text>
+        <text x="700" y="347" class="ts" text-anchor="middle">autophagy machinery</text>
+
+        <!-- outputs -->
+        <path class="flow" d="M700,416 L700,432"/>
+        <rect x="470" y="434" width="460" height="54" rx="4" class="box-a"/>
+        <text x="700" y="456" class="tb" text-anchor="middle">more autophagosomes, more lysosomes</text>
+        <text x="700" y="475" class="ts" text-anchor="middle">aggregate-prone proteins and damaged organelles are cleared</text>
+
+        <!-- chaperone feeds the same output -->
+        <path class="flow" d="M304,417 C376,417 398,452 462,459"/>
+      </svg>
     </div>
 
-    <div class="trial">
-      <h3>Therapeutic effects of trehalose in patients with Alzheimer's disease (MASHIANE)</h3>
-      <p>A pilot randomised, triple-blind, placebo-controlled trial in patients with probable
-         Alzheimer's disease, evaluating intravenous trehalose against normal saline over
-         12 weeks. Cognitive outcomes are assessed by MMSE and Clinical Dementia Rating.</p>
-      <div class="meta">
-        <span><b>Design:</b> Randomised, triple-blind, placebo-controlled</span>
-        <span><b>Intervention:</b> Trehalose 15 g/week IV, 12 weeks</span>
-        <span><b>Registration:</b> IRCT20130829014521N15</span>
-      </div>
-    </div>
-
-    <div class="trial">
-      <h3>Oral trehalose in type 2 diabetes: glycaemia, inflammation and quality of life</h3>
-      <p>A pilot randomised controlled trial examining whether oral trehalose improves glycaemic
-         control, reduces inflammatory burden and affects quality of life in patients with
-         type 2 diabetes.</p>
-      <div class="meta">
-        <span><b>Design:</b> Pilot randomised controlled trial</span>
-        <span><b>Route:</b> Oral</span>
-        <span><b>Status:</b> Published</span>
-      </div>
-    </div>
-
-    <div class="trial">
-      <h3>Trehalose and mortality in intensive care unit patients</h3>
-      <p>A triple-blind, randomised, placebo-controlled superiority trial enrolling 200
-         ICU-admitted patients at Imam Reza Hospital, Mashhad, testing whether trehalose reduces
-         organ failure and improves survival.</p>
-      <div class="meta">
-        <span><b>Design:</b> Triple-blind, randomised, placebo-controlled</span>
-        <span><b>Intervention:</b> 100 mL of 15% trehalose IV vs normal saline</span>
-        <span><b>Sample size:</b> 200 patients</span>
-      </div>
-    </div>
-
-    <div class="trial">
-      <h3>Trehalose in traumatic head injury: inflammation, oxidative stress and mortality</h3>
-      <p>A double-blind, placebo-controlled randomised trial in patients with head trauma,
-         assessing inflammatory markers, oxidative stress, clinical symptoms and mortality.</p>
-      <div class="meta">
-        <span><b>Design:</b> Double-blind, placebo-controlled, randomised</span>
-        <span><b>Setting:</b> Intensive care</span>
-      </div>
-    </div>
-
-    <div class="trial">
-      <h3>Trehalose supplementation in pertrochanteric fracture</h3>
-      <p>A randomised controlled trial evaluating the effect of trehalose on bone healing,
-         physical function and pain following pertrochanteric fracture.</p>
-      <div class="meta">
-        <span><b>Design:</b> Randomised controlled trial</span>
-        <span><b>Status:</b> Published in <i>Scientific Reports</i>, 2026</span>
-      </div>
-    </div>
-
-    <div class="trial">
-      <h3>Intravenous trehalose in acid sphingomyelinase deficiency (Niemann&ndash;Pick A and B)</h3>
-      <p>An open-label, single-arm pilot study of intravenous trehalose in patients with
-         acid sphingomyelinase deficiency, with quality of life, serum biomarkers and
-         high-resolution lung CT assessed before and after treatment.</p>
-      <div class="meta">
-        <span><b>Design:</b> Open-label, single-arm</span>
-        <span><b>Intervention:</b> Trehalose 15 g/week IV, 12 weeks</span>
-        <span><b>Status:</b> Published</span>
-      </div>
-    </div>
-
-    <div class="trial">
-      <h3>Trehalose in lysosomal storage disorders: Niemann&ndash;Pick and Sanfilippo syndrome</h3>
-      <p>A phase 2 single-arm trial assessing quality of life and paraclinical findings in
-         patients with Niemann&ndash;Pick disease or mucopolysaccharidosis type III, including
-         serum enzyme activity and urinary glycosaminoglycan concentrations.</p>
-      <div class="meta">
-        <span><b>Design:</b> Single-arm, phase 2</span>
-        <span><b>Intervention:</b> Trehalose 15 g/week IV, 12 weeks</span>
-        <span><b>Registration:</b> IRCT</span>
-      </div>
-    </div>
-
-    <div class="trial">
-      <h3>Trehalose in multiple sulfatase deficiency</h3>
-      <p>A non-randomised interventional study of intravenous trehalose in multiple sulfatase
-         deficiency, a rare inherited disorder with no established treatment.</p>
-      <div class="meta">
-        <span><b>Design:</b> Non-randomised, single-arm</span>
-        <span><b>Intervention:</b> Trehalose 15 g/week IV, 12 weeks</span>
-        <span><b>Setting:</b> Akbar Children's Hospital, Mashhad</span>
-      </div>
+    <div class="prose" style="margin-top:30px">
+      <p>The mTOR-independent route is what made trehalose attractive. Rapamycin and its analogues also induce autophagy, but by suppressing mTOR they suppress protein synthesis and immune function along with it. A compound that reaches the same endpoint from a different direction avoids that cost, at least in principle.</p>
+      <p>Not all of this is settled. Work published since 2024 has argued that the autophagy-centric account is incomplete, and that some of what trehalose does in the gut is mediated by shifts in the microbiota rather than by anything happening inside host cells.</p>
     </div>
   </div>
 </section>
 
-<section id="pubs" class="tint">
+<section id="therapeutic">
   <div class="wrap">
-    <div class="shead">
-      <span class="eyebrow">Publications</span>
-      <h2>Selected publications</h2>
-      <p>Clinical, preclinical and review work from the programme. Filter by category below.</p>
-    </div>
-    <div class="filters">
-      <button class="filt on" data-f="all">All</button>
-      <button class="filt" data-f="clin">Clinical</button>
-      <button class="filt" data-f="pre">Preclinical</button>
-      <button class="filt" data-f="rev">Reviews</button>
-    </div>
-    <div id="publist">
+    <h2>Where it is being tested</h2>
+    <p class="lede">The clinical programme follows the mechanism: conditions where something needs clearing, or where a protein is misfolding.</p>
 
-      <div class="pub" data-c="rev"><div class="yr">2026</div><div>
-        <h4>Trehalose: a promising therapeutic agent for diverse pathological conditions</h4>
-        <div class="jrnl">Current Medical Science, 46, 332&ndash;346</div>
-        <div class="row"><span class="chip">Review</span>
-          <a href="https://doi.org/10.1007/s11596-026-00174-z" target="_blank" rel="noopener">View DOI &rarr;</a></div>
-      </div></div>
-
-      <div class="pub" data-c="clin"><div class="yr">2026</div><div>
-        <h4>Effects of trehalose supplementation on bone healing, physical function, and pain in patients with pertrochanteric fractures: a randomized controlled trial</h4>
-        <div class="jrnl">Scientific Reports</div>
-        <div class="row"><span class="chip">Clinical trial</span>
-          <a href="https://doi.org/10.1038/s41598-026-56086-4" target="_blank" rel="noopener">View DOI &rarr;</a></div>
-      </div></div>
-
-      <div class="pub" data-c="clin"><div class="yr">2026</div><div>
-        <h4>Metabolic improvement in patients with acid sphingomyelinase deficiency following intravenous trehalose administration: an untargeted pharmacometabolomic study</h4>
-        <div class="jrnl">Orphanet Journal of Rare Diseases</div>
-        <div class="row"><span class="chip">Clinical trial</span>
-          <a href="https://doi.org/10.1186/s13023-025-04188-z" target="_blank" rel="noopener">View DOI &rarr;</a></div>
-      </div></div>
-
-      <div class="pub" data-c="clin"><div class="yr">2025</div><div>
-        <h4>Direct hybridization and bioinformatics analysis of circulating microRNAs in patients with Alzheimer's disease under intravenous trehalose treatment</h4>
-        <div class="jrnl">Brain Research</div>
-        <div class="row"><span class="chip">Biomarker study</span></div>
-      </div></div>
-
-      <div class="pub" data-c="clin"><div class="yr">2025</div><div>
-        <h4>The effect of trehalose on inflammatory markers, oxidative stress, clinical symptoms, and mortality in patients with head trauma: a double-blind, placebo-controlled, randomized clinical trial protocol</h4>
-        <div class="jrnl">Clinical trial protocol</div>
-        <div class="row"><span class="chip">Trial protocol</span></div>
-      </div></div>
-
-      <div class="pub" data-c="clin"><div class="yr">2024</div><div>
-        <h4>Effect of trehalose on mortality and disease severity in ICU-admitted patients: protocol for a triple-blind, randomized, placebo-controlled clinical trial</h4>
-        <div class="jrnl">Contemporary Clinical Trials Communications</div>
-        <div class="row"><span class="chip">Trial protocol</span>
-          <a href="https://pubmed.ncbi.nlm.nih.gov/39021672/" target="_blank" rel="noopener">View on PubMed &rarr;</a></div>
-      </div></div>
-
-      <div class="pub" data-c="clin"><div class="yr">2023</div><div>
-        <h4>The effects of oral trehalose on glycaemia, inflammation, and quality of life in patients with type 2 diabetes: a pilot randomized controlled trial</h4>
-        <div class="jrnl">Pilot randomised controlled trial</div>
-        <div class="row"><span class="chip">Clinical trial</span></div>
-      </div></div>
-
-      <div class="pub" data-c="clin"><div class="yr">2022</div><div>
-        <h4>Study protocol for a pilot randomised controlled trial evaluating the effectiveness of oral trehalose on inflammatory factors, oxidative stress, nutritional and clinical status in traumatic head injury patients receiving enteral nutrition</h4>
-        <div class="jrnl">Trial protocol</div>
-        <div class="row"><span class="chip">Trial protocol</span></div>
-      </div></div>
-
-      <div class="pub" data-c="rev"><div class="yr">2021</div><div>
-        <h4>Therapeutic potential of trehalose in neurodegenerative diseases: the knowns and unknowns</h4>
-        <div class="jrnl">Neural Regeneration Research, 16(10), 2026&ndash;2027</div>
-        <div class="row"><span class="chip">Review</span>
-          <a href="https://doi.org/10.4103/1673-5374.308085" target="_blank" rel="noopener">View DOI &rarr;</a></div>
-      </div></div>
-
-      <div class="pub" data-c="rev"><div class="yr">2020</div><div>
-        <h4>Trehalose against Alzheimer's disease: insights into a potential therapy</h4>
-        <div class="jrnl">BioEssays, 42(8), 1900195</div>
-        <div class="row"><span class="chip">Review</span>
-          <a href="https://doi.org/10.1002/bies.201900195" target="_blank" rel="noopener">View DOI &rarr;</a></div>
-      </div></div>
-
-      <div class="pub" data-c="rev"><div class="yr">2019</div><div>
-        <h4>Trehalose as a promising therapeutic candidate for the treatment of Parkinson's disease</h4>
-        <div class="jrnl">British Journal of Pharmacology</div>
-        <div class="row"><span class="chip">Review</span></div>
-      </div></div>
-
-      <div class="pub" data-c="pre"><div class="yr">2018</div><div>
-        <h4>Trehalose administration attenuates atherosclerosis in rabbits fed a high-fat diet</h4>
-        <div class="jrnl">Preclinical cardiovascular study</div>
-        <div class="row"><span class="chip">Preclinical</span></div>
-      </div></div>
-
-      <div class="pub" data-c="rev"><div class="yr">2018</div><div>
-        <h4>Autophagy induction by trehalose: molecular mechanisms and therapeutic impacts</h4>
-        <div class="jrnl">Journal of Cellular Physiology, 233(9), 6524&ndash;6543</div>
-        <div class="row"><span class="chip">Review</span>
-          <a href="https://doi.org/10.1002/jcp.26583" target="_blank" rel="noopener">View DOI &rarr;</a></div>
-      </div></div>
-
-    </div>
-  </div>
-</section>
-
-<section id="team">
-  <div class="wrap">
-    <div class="shead">
-      <span class="eyebrow">Team</span>
-      <h2>Investigators</h2>
-    </div>
-    <div class="grid g2">
-      <div class="person">
-        <img src="data:image/jpeg;base64,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" alt="Professor Amirhossein Sahebkar">
-        <h3>Amirhossein Sahebkar</h3>
-        <div class="role">Pharm.D., Ph.D., FESC, FACC &middot; Principal Investigator</div>
-        <p>Professor at the Department of Biotechnology and the Biotechnology Research Center,
-           Mashhad University of Medical Sciences. A fellow of the European Society of Cardiology
-           and the American College of Cardiology, he serves as National Lead Investigator for the
-           European Atherosclerosis Society. His research focuses on the discovery of natural
-           products for the treatment of chronic disease, spanning both basic and clinical
-           studies.</p>
+    <div class="areas">
+      <div class="area">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M22,12 C12,14 8,24 12,32 C6,38 10,50 20,50 C22,56 34,58 38,52
+                   C50,52 56,42 50,34 C56,26 50,14 40,14 C36,8 26,8 22,12 Z"
+                fill="#2E6E6B" fill-opacity=".12" stroke="#2E6E6B" stroke-width="2"/>
+          <path d="M31,14 L31,52 M31,24 C24,24 22,30 26,34 M31,38 C38,38 40,32 36,28"
+                fill="none" stroke="#2E6E6B" stroke-width="1.6"/>
+        </svg>
+        <div>
+          <h3>Neurodegeneration <span class="stage">phase 2 and earlier</span></h3>
+          <p>Huntington's disease, spinocerebellar ataxia, ALS and tauopathies. Preclinical clearance of mutant huntingtin and tau is reproducible; the human trials so far have been small, and oral dosing runs straight into the bioavailability problem below.</p>
+        </div>
       </div>
-      <div class="person">
-        <img src="data:image/jpeg;base64,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" alt="Dr Maryam Emadzadeh">
-        <h3>Maryam Emadzadeh</h3>
-        <div class="role">M.D., Community Medicine &middot; Associate Professor</div>
-        <p>Board-certified in Community Medicine and Associate Professor in the Clinical Research
-           Development Unit, Ghaem Hospital, Mashhad University of Medical Sciences. Her research
-           interests focus on nutrition and neurological disorders, with particular emphasis on the
-           potential impact of dietary supplements on health outcomes. She is actively involved in
-           clinical trials investigating cardiometabolic health and the clinical evaluation of
-           novel drug candidates and emerging therapeutic interventions.</p>
+
+      <div class="area">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M32,54 C8,38 8,20 20,15 C27,12 32,18 32,22 C32,18 37,12 44,15 C56,20 56,38 32,54 Z"
+                fill="#2E6E6B" fill-opacity=".12" stroke="#2E6E6B" stroke-width="2"/>
+          <path d="M10,32 L20,32 L24,24 L30,42 L35,30 L40,36 L54,36" fill="none" stroke="#2E6E6B" stroke-width="1.8"/>
+        </svg>
+        <div>
+          <h3>Cardiovascular <span class="stage">early clinical</span></h3>
+          <p>Intravenous trehalose has been given weekly to patients with coronary disease, on the rationale that autophagic clearance of plaque macrophages limits lesion progression. The signal is interesting and the sample sizes are small.</p>
+        </div>
+      </div>
+
+      <div class="area">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M8,22 C20,14 44,14 56,22 C56,40 48,50 32,54 C16,50 8,40 8,22 Z"
+                fill="#2E6E6B" fill-opacity=".12" stroke="#2E6E6B" stroke-width="2"/>
+          <path d="M20,26 C26,32 26,40 22,46 M34,24 C40,32 40,42 34,50" fill="none" stroke="#2E6E6B" stroke-width="1.6"/>
+        </svg>
+        <div>
+          <h3>Fatty liver and metabolic disease <span class="stage">preclinical, some human data</span></h3>
+          <p>Trehalose reduces hepatic steatosis in rodents through TFEB-driven lipophagy. Because intestinal trehalase splits most of an oral dose into glucose, human studies have to reckon with a glycaemic load that partly opposes the intended effect.</p>
+        </div>
+      </div>
+
+      <div class="area">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M4,32 C16,16 48,16 60,32 C48,48 16,48 4,32 Z"
+                fill="#2E6E6B" fill-opacity=".12" stroke="#2E6E6B" stroke-width="2"/>
+          <circle cx="32" cy="32" r="10" fill="none" stroke="#2E6E6B" stroke-width="2"/>
+          <circle cx="32" cy="32" r="4" fill="#2E6E6B"/>
+        </svg>
+        <div>
+          <h3>Dry eye <span class="stage">approved in some markets</span></h3>
+          <p>The one setting where the desiccation biology is used directly. Trehalose eye drops protect the corneal epithelium from drying stress, and are sold as a medical device or ophthalmic preparation in several countries.</p>
+        </div>
+      </div>
+
+      <div class="area">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M32,8 L32,30 M32,30 C32,44 24,54 16,54 C10,54 8,48 10,40 L16,22
+                   M32,30 C32,44 40,54 48,54 C54,54 56,48 54,40 L48,22"
+                fill="#2E6E6B" fill-opacity=".12" stroke="#2E6E6B" stroke-width="2"/>
+        </svg>
+        <div>
+          <h3>Critical illness <span class="stage">investigator-led trials</span></h3>
+          <p>Supplementation in intensive care, measuring inflammatory and oxidative stress markers rather than hard clinical endpoints. Useful for establishing tolerability; not yet evidence of benefit.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="contact" class="tint">
+<section id="delivery">
   <div class="wrap">
-    <div class="shead">
-      <span class="eyebrow">Contact</span>
-      <h2>Get in touch</h2>
-      <p>We welcome enquiries from clinicians, researchers and potential collaborators.</p>
+    <h2>The delivery problem</h2>
+    <p class="lede">Almost every disappointing trehalose result traces back to the same place: very little of an oral dose survives to reach the tissue of interest.</p>
+
+    <div class="routes">
+      <svg viewBox="0 0 880 340" role="img" aria-labelledby="routeTitle">
+        <title id="routeTitle">Three routes of administration compared: oral, intravenous and intranasal, showing where trehalose is lost.</title>
+        <defs>
+          <style>
+            .rt{font-family:"IBM Plex Sans",sans-serif;font-size:13px;fill:#1A2431}
+            .rtb{font-family:"IBM Plex Serif",serif;font-size:15px;fill:#1A2431;font-weight:600}
+            .rts{font-family:"IBM Plex Sans",sans-serif;font-size:11.5px;fill:#4C5A69}
+            .pipe{stroke:#C8CDD4;stroke-width:22;fill:none;stroke-linecap:round}
+            .flowline{stroke:#B08A1E;stroke-width:22;fill:none;stroke-linecap:round}
+            .barrier{stroke:#8C3B2E;stroke-width:2;stroke-dasharray:4 4}
+          </style>
+        </defs>
+
+        <!-- ORAL -->
+        <text x="20" y="40" class="rtb">Oral</text>
+        <path class="pipe" d="M150,52 H840"/>
+        <path class="flowline" d="M150,52 H300"/>
+        <line x1="300" y1="26" x2="300" y2="78" class="barrier"/>
+        <text x="306" y="30" class="rts">intestinal trehalase splits it into two glucoses</text>
+        <text x="830" y="86" class="rts" text-anchor="end">very little intact trehalose reaches the circulation</text>
+
+        <!-- IV -->
+        <text x="20" y="150" class="rtb">Intravenous</text>
+        <path class="pipe" d="M150,162 H840"/>
+        <path class="flowline" d="M150,162 H700"/>
+        <line x1="700" y1="136" x2="700" y2="188" class="barrier"/>
+        <text x="706" y="140" class="rts">blood–brain barrier</text>
+        <text x="420" y="196" class="rts" text-anchor="middle">reaches plasma intact; renal trehalase and rapid clearance still apply</text>
+
+        <!-- INTRANASAL -->
+        <text x="20" y="262" class="rtb">Intranasal</text>
+        <path class="pipe" d="M150,274 H840"/>
+        <path class="flowline" d="M150,274 H800"/>
+        <text x="420" y="308" class="rts" text-anchor="middle">olfactory and trigeminal routes bypass both the gut enzyme and the blood–brain barrier</text>
+        <text x="830" y="256" class="rts" text-anchor="end">deliverable dose is small, so analytical sensitivity decides the experiment</text>
+      </svg>
     </div>
-    <div class="contact">
-      <div class="cbox">
-        <div class="lbl">Email</div>
-        <div class="val"><a href="mailto:amir_Saheb2000@yahoo.com">amir_Saheb2000@yahoo.com</a></div>
+
+    <div class="prose" style="margin-top:30px">
+      <p>Intranasal delivery is the route our own work is following, for a straightforward reason. Trehalase in the intestinal brush border removes most of an oral dose before absorption, and the blood–brain barrier removes most of what an intravenous dose delivers. Going through the nose avoids both.</p>
+      <p>The trade-off is volume. A nasal spray can deliver on the order of a hundred microlitres per nostril, so the total dose is measured in tens of milligrams rather than grams. Whether that is enough to reach a meaningful concentration in cerebrospinal fluid is an empirical question, and it is the question worth answering first.</p>
+    </div>
+  </div>
+</section>
+
+<section id="evidence">
+  <div class="wrap">
+    <h2>What the evidence supports, and what it does not</h2>
+    <p class="lede">Trehalose is frequently written about as though the preclinical case had already been settled in humans. It has not been.</p>
+
+    <div class="ledger">
+      <div class="row">
+        <div class="yes">
+          <h3>Well established</h3>
+          <p>Protein and membrane stabilisation during drying and freezing. This is engineering, not hypothesis, and it underpins the excipient use of trehalose in licensed biologics.</p>
+        </div>
+        <div class="no">
+          <h3>Not established</h3>
+          <p>That oral trehalose meaningfully induces autophagy in human brain tissue. Bioavailability, not biology, is the limiting step.</p>
+        </div>
       </div>
-      <div class="cbox">
-        <div class="lbl">Telephone</div>
-        <div class="val"><a href="tel:+985131801239">+98 51 3180 1239</a></div>
+      <div class="row">
+        <div class="yes">
+          <h3>Well established</h3>
+          <p>Autophagy induction in cultured cells and in rodent models, at concentrations that are readily achieved in a dish.</p>
+        </div>
+        <div class="no">
+          <h3>Not established</h3>
+          <p>A clinical benefit on any hard endpoint in neurodegenerative disease. Trials so far have been small, short, and mostly open-label.</p>
+        </div>
       </div>
-      <div class="cbox">
-        <div class="lbl">Fax</div>
-        <div class="val">+98 51 3882 3251</div>
-      </div>
-      <div class="cbox">
-        <div class="lbl">Address</div>
-        <div class="val">School of Pharmacy, Mashhad University of Medical Sciences,
-          Mashhad, Iran</div>
+      <div class="row">
+        <div class="yes">
+          <h3>Reasonably safe</h3>
+          <p>Trehalose has GRAS status as a food ingredient and is well tolerated at gram-level oral doses, with osmotic diarrhoea as the main dose-limiting effect.</p>
+        </div>
+        <div class="no">
+          <h3>Open question</h3>
+          <p>Whether dietary trehalose favours virulent <i>Clostridioides difficile</i> lineages, as work published in 2018 proposed. The finding remains contested and has not been resolved either way.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -522,29 +575,40 @@ footer a{color:#fff}
 
 <footer>
   <div class="wrap">
-    <div style="font-weight:600;color:#fff;margin-bottom:6px">Trehalose Research Programme</div>
-    <div>Mashhad University of Medical Sciences &middot; Mashhad, Iran</div>
-    <div class="fnote">The information on this site describes ongoing research and is intended for
-      scientific and professional audiences. It is not medical advice. Patients should consult a
-      qualified clinician regarding their own care.</div>
+    <p>Written for readers with a scientific background who want the mechanism and the caveats in one place. Nothing here is medical advice, and trehalose is not an approved treatment for any of the conditions described above.</p>
+    <p style="margin-top:14px">Maintained by the Sahebkar research group.</p>
   </div>
 </footer>
 
 <script>
-document.querySelectorAll('.filt').forEach(function(b){
-  b.addEventListener('click', function(){
-    document.querySelectorAll('.filt').forEach(function(x){x.classList.remove('on')});
-    b.classList.add('on');
-    var f = b.dataset.f;
-    document.querySelectorAll('#publist .pub').forEach(function(p){
-      p.style.display = (f === 'all' || p.dataset.c === f) ? '' : 'none';
-    });
-  });
-});
-document.querySelectorAll('#nav a').forEach(function(a){
-  a.addEventListener('click', function(){ document.getElementById('nav').classList.remove('open'); });
-});
-</script>
+(function(){
+  var no  = document.getElementById('noTre');
+  var yes = document.getElementById('withTre');
+  var bNo = document.getElementById('btnNo');
+  var bYes= document.getElementById('btnYes');
+  var cap = document.getElementById('cap');
+  var shape = document.getElementById('recovShape');
+  var lbl = document.getElementById('recovLbl');
 
+  var TXT = {
+    no:  'Without a substitute, the hydrogen bonds that held the fold together are lost as water goes, and the protein does not come back.',
+    yes: 'Trehalose hydrogen-bonds to the same polar groups the water was holding, then sets into a glass around the protein. On rehydration the fold is intact.'
+  };
+
+  function set(withTre){
+    no.style.opacity  = withTre ? 0 : 1;
+    yes.style.opacity = withTre ? 1 : 0;
+    bNo.setAttribute('aria-pressed',  String(!withTre));
+    bYes.setAttribute('aria-pressed', String(withTre));
+    cap.textContent = withTre ? TXT.yes : TXT.no;
+    shape.setAttribute('stroke-dasharray', withTre ? 'none' : '5 4');
+    shape.setAttribute('fill-opacity', withTre ? '0.16' : '0.05');
+    lbl.textContent = withTre ? 'function returns' : 'function lost';
+  }
+  bNo.addEventListener('click',  function(){ set(false); });
+  bYes.addEventListener('click', function(){ set(true);  });
+  set(false);
+})();
+</script>
 </body>
 </html>
